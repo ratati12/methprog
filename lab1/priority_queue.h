@@ -3,14 +3,15 @@
  *  получение числа элементов в очереди; [+]
  *  добавление элемента в очередь; [+]
  *  удаление элемента из очереди; [+]
- *  доступ к максимальному элементу очереди;
+ *  доступ к максимальному элементу очереди; [+]
  * */
 
 using namespace std;
 class Priority_queue 
-{
-    public:
+{   
+    private:
         vector<int> heapTree;
+    public:
         void swap(int *a, int *b)
         {
             int temp = *a;
