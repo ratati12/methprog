@@ -1,3 +1,11 @@
+/*  Kласс должен содержать следующие методы: 
+ *  проверка очереди на пустоту; [+]
+ *  получение числа элементов в очереди; [+]
+ *  добавление элемента в очередь; [+]
+ *  удаление элемента из очереди; [+]
+ *  доступ к максимальному элементу очереди;
+ * */
+
 using namespace std;
 class Priority_queue 
 {
@@ -37,6 +45,21 @@ class Priority_queue
                 heapTree.push_back(element);
             }
         }
+        void rm(int element)
+        {
+            int i;
+            int size = heapTree.size();
+            for (i = 0; i < size; i++)
+            {
+                if (element == heapTree[i]) break;
+            }
+            swap(&heapTree[i], &heapTree[size-1]);
+            heapTree.pop_back();
+            for (int i = size/2-1; i >= 0; i--)
+            {
+                sort_heapTree(i);
+            }
+        }
 
         void sort_heapTree(int i)
         {
@@ -52,7 +75,10 @@ class Priority_queue
                 sort_heapTree(max);
             }
         }
-
+        void print_max()
+        {
+            cout << "The max element is " << heapTree[0] << "\n";
+        }
         void print_heapTree()
         {
             for (int i = 0; i < heapTree.size(); i++) 
