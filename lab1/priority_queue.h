@@ -1,13 +1,21 @@
+using namespace std;
 void swap(int *a, int *b);
 void add(vector<int> &heapTree, int element);
 void sort_heapTree(vector<int> &heapTree, int i);
 void print_heapTree(vector<int> &heapTree);
+void check_empty(vector <int> &heapTree);
 
 void swap(int *a, int *b)
 {
     int temp = *a;
     *a = *b;
     *b = temp;
+}
+
+void check_empty(vector<int> &heapTree)
+{
+    if (heapTree.size() == 0 ) cout << "The heap tree is empty\n";
+    else cout << "The heap tree contains " << heapTree.size() << " elements.\n";
 }
 
 void add(vector<int> &heapTree, int element)
